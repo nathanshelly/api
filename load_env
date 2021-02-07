@@ -1,0 +1,4 @@
+# opt into flakes
+touch .use-flake
+
+eval "$(direnv export $SHELL)"
