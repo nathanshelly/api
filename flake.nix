@@ -85,6 +85,21 @@
               name = "api";
             };
 
+            # checks to be run either manually, in CI, or in pre-commit hooks
+            #
+            # TODO: understand how to define arbitrary checks here.
+            # documentation does not seem to have much about this.
+            #
+            # - https://nixos.wiki/wiki/Flakes#Output_schema
+            # - https://discourse.nixos.org/t/my-painpoints-with-flakes/9750/12
+            checks = {
+              # confirm our api builds (same as `nix build .#api`)
+              build = self.packages.${system}.api;
+
+              # cargo-lint = "cargo clippy"
+              # cargo-fmt = "cargo fmt -- --check";
+            };
+
             # `nix develop`
             devShell = let
               cacert = pkgs.cacert;
