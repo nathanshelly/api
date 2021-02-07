@@ -132,7 +132,7 @@
               };
 
               # version & name are parsed from Cargo.toml
-              server = naersk-lib.buildPackage {
+              api = naersk-lib.buildPackage {
                 src = ./.;
 
                 # buildInputs = [] ++ lib.optionals stdenv.isLinux [
