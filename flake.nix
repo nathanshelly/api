@@ -96,7 +96,9 @@
               # confirm our api builds (same as `nix build .#api`)
               build = self.packages.${system}.api;
 
-              # cargo-lint = "cargo clippy"
+              # TODO: remove `-Z unstable-options` when this has landed
+              # https://github.com/rust-lang/rust-clippy/issues/4612
+              # cargo-lint = "cargo clippy -Z unstable-options"
               # cargo-fmt = "cargo fmt -- --check";
             };
 
